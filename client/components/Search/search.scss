@@ -1,0 +1,60 @@
+@import '../vars.scss';
+
+.Search {
+  margin: 0px auto 20px auto;
+  max-width: $maxwidth;
+  &-list {
+    background-color: #fff;
+    border-radius: 4px;
+    overflow: hidden;
+    padding: 0 16px;
+  }
+  &-item {
+    color: inherit;
+    display: flex;
+    flex-wrap: wrap;
+    padding-top: 16px;
+    text-decoration: none;
+    &-image {
+      border-radius: 4px;
+      img {
+        height: 180px;
+        width: 180px;
+      }
+    }
+    &-info {
+      flex: 1;
+      text-align: left;
+      padding-left: 16px;
+      h2 {
+        font-weight: lighter;
+        margin: 20px 0 0 0;
+      }
+      h3 {
+        font-weight: lighter;
+        margin: 32px 0 0 0;
+      }
+    }
+    &-shipping {
+      margin-left: 10px;
+      img {
+        height: 18px;
+      }
+    }
+    &-location {
+      color: $darkgray;
+      font-size: 12px;
+      float: right;
+    }
+    &:last-child::after {
+      height: 0px;
+    }
+    &::after {
+      background-color: $gray;
+      content: '';
+      margin-top: 16px;
+      height: 1px;
+      width: 100%;
+    }
+  }
+}

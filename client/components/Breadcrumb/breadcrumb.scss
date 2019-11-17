@@ -1,0 +1,27 @@
+@import '../vars.scss';
+
+.Breadcrumb {
+  text-align: left;
+  color: $darkgray;
+  margin: 16px auto;
+  &-list {
+    margin: 0;
+    padding: 0;
+    li {
+      display: inline-block;
+      margin-right: 8px;
+      &::after {
+        content: '\f105';
+        font-family: 'FontAwesome';
+        display: inline-block;
+        margin-left: 8px;
+      }
+      &:last-child {
+        font-weight: bold;
+        &::after {
+          display: none;
+        }
+      }
+    }
+  }
+}

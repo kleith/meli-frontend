@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
 import Link from 'next/Link'
+import Router from 'next/router'
+
 import './header.scss'
 
 const Header = () => {
@@ -12,6 +14,7 @@ const Header = () => {
     if (!value.length) {
       return false
     }
+    Router.push(`/items?q=${encodeURIComponent(value)}`)
   }
 
   return (
@@ -31,7 +34,7 @@ const Header = () => {
               onChange={event => setValue(event.target.value)}
               placeholder="Nunca dejes de buscar" />
             <button className="Header-inputContainer-button" type="submit">
-              Search
+              <img src="/images/ic_Search.png" srcSet="/images/ic_Search@2x.png" alt="Search" />
             </button>
           </form>
         </div>
