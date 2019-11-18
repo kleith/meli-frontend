@@ -39,8 +39,8 @@ Tenés que usar el siguiente stack tecnológico para construir la aplicación:
             "name": String,
             "lastname": String
           },
-          categories: [String, String, String, ...],
-          items: [
+          "categories": [String, String, String, ...],
+          "items": [
             {
               "id": String,
               "title": String,
@@ -78,7 +78,7 @@ Tenés que usar el siguiente stack tecnológico para construir la aplicación:
             "picture": String,
             "condition": String,
             "free_shipping": Boolean,
-            "sold_quantity", Number,
+            "sold_quantity": Number,
             "description": String
           }
         }
