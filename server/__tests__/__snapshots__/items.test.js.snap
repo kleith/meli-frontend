@@ -1,0 +1,35 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test /api/items request from an item id should get a snapshot error 1`] = `
+Object {
+  "cause": Array [],
+  "error": "not_found",
+  "message": "Item with id sdz.MLA821329221 not found.",
+  "status": 404,
+}
+`;
+
+exports[`Test /api/items request from an item id should get snpashot item information 1`] = `
+Object {
+  "author": Object {
+    "lastname": "Martínez",
+    "name": "Sergio",
+  },
+  "item": Any<Object>,
+}
+`;
+
+exports[`Test /api/items request from query search should get item's list snpashot results 1`] = `
+Object {
+  "author": Object {
+    "lastname": "Martínez",
+    "name": "Sergio",
+  },
+  "categories": Array [
+    "Ropa y Accesorios",
+    "Calzado",
+    "Zapatillas",
+  ],
+  "items": Any<Array>,
+}
+`;
