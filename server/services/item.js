@@ -1,5 +1,5 @@
-const buildAuthor = require('./author');
-const utils = require('../utils');
+var buildAuthor = require('./author');
+var utils = require('../utils');
 
 /**
  * Build response from data
