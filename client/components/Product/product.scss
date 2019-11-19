@@ -1,7 +1,7 @@
 @import '../vars.scss';
 
 .Product {
-  margin: 0px auto;
+  margin: 20px auto;
   max-width: $maxwidth;
   &-item {
     background-color: #fff;
@@ -20,7 +20,7 @@
       text-align: left;
       h2 {
         font-size: 28px;
-        margin-bottom: 20px;
+        margin-bottom: 1em;
       }
       div {
         font-size: 16px;

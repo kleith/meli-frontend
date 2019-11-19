@@ -3,6 +3,10 @@ import PropTypes from 'prop-types'
 
 import './product.scss'
 
+const numberWithCommas = number => {
+  return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+}
+
 const Product = ({ product }) => {
   if (!product) {
     return <div>Loading...</div>
@@ -26,7 +30,7 @@ const Product = ({ product }) => {
           </div>
           <h3>{product.item.title}</h3>
           <h2>
-            $ {product.item.price.amount}
+            $ {numberWithCommas(product.item.price.amount)}
             <span className="Product-description-decimals">
               {product.item.price.decimals || "00"}
             </span>

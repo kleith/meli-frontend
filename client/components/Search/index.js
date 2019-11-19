@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
-import PropTypes from 'prop-types'
 import Link from 'next/Link'
+import { withRouter } from 'next/router'
 import fetch from 'isomorphic-unfetch'
 
 import Breadcrumb from '../Breadcrumb'
@@ -8,12 +8,16 @@ import './Search.scss'
 
 import { GET_ITEMS } from '../../utils/apiEndpoint'
 
-const Search = ({ query }) => {
+const numberWithCommas = number => {
+  return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+}
+
+const Search = withRouter(({ router }) => {
   const [search, setSearch] = useState({})
 
   useEffect(() => {
     function fetchSearch() {
-      fetch(GET_ITEMS + query)
+      fetch(GET_ITEMS + router.query.q)
         .then(res => {
           return res.json()
         })
@@ -23,7 +27,7 @@ const Search = ({ query }) => {
     }
 
     fetchSearch()
-  }, [])
+  }, [router])
   
   return (
     <div className="Search">
@@ -37,7 +41,7 @@ const Search = ({ query }) => {
               </div>
               <div className="Search-item-info">
                 <h2>
-                  $ {item.price.amount},{item.price.decimals || "00"}
+                  $ {numberWithCommas(item.price.amount)}
                   {item.free_shipping && (
                     <span className="Search-item-shipping">
                       <img src="/images/ic_shipping.png" srcSet="/images/ic_shipping@2x.png" alt={item.title} />
@@ -57,10 +61,6 @@ const Search = ({ query }) => {
       </div>
     </div>
   )
-}
-
-Search.propTypes = {
-  query: PropTypes.string.isRequired
-}
+})
 
 export default Search

@@ -5,7 +5,7 @@ import Router from 'next/router'
 import './header.scss'
 
 const Header = () => {
-  const [value, setValue] = useState(undefined)
+  const [value, setValue] = useState('')
 
   const handleSearch = (e) => {
     e.preventDefault()
