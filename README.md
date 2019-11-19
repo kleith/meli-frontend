@@ -15,7 +15,7 @@ yarn start
 ```
 
 ### Ejecución del test práctico
-Una vez ejecutado los servidores para el `server` y el `client` dirigirse a la siguiente ruta en un navegador: [localhost:3300](http://localhost:3300).
+Una vez ejecutado los servidores para el `server` y el `client` dirigirse a la siguiente ruta en un navegador: [localhost:3000](http://localhost:3000).
 
 ---
 
