@@ -47,7 +47,7 @@ function buildItems(items) {
  */
 function buildCategories(categories) {
   // validate that exist a value
-  if (!categories.values || !categories.values[0].path_from_root) {
+  if (!categories || !categories.values || !categories.values[0].path_from_root) {
     return [];
   }
 

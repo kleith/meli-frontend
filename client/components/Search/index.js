@@ -1,33 +1,29 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
+import PropTypes from 'prop-types'
 import Link from 'next/Link'
+import fetch from 'isomorphic-unfetch'
+
 import Breadcrumb from '../Breadcrumb'
 import './Search.scss'
 
-export default () => {
-  const search = {
-    items: [{
-      id: 1,
-      picture: 'img.jpg',
-      price: { amount: 1200.32 },
-      free_shipping: true,
-      title: 'some product',
-      location: 'argentina',
-    }],
-    categories: [
-      {name: 'algo'},
-      {name: 'deda'},
-      {name: 'pepa peg'},
-    ]
-  }
+import { GET_ITEMS } from '../../utils/apiEndpoint'
 
+const Search = ({ query }) => {
+  const [search, setSearch] = useState({})
 
-  if (!search) {
-    return (<div>Loading...</div>)
-  }
+  useEffect(() => {
+    function fetchSearch() {
+      fetch(GET_ITEMS + query)
+        .then(res => {
+          return res.json()
+        })
+        .then(res => {
+          setSearch(res)
+        })
+    }
 
-  if (search.error) {
-    return <div></div>
-  }
+    fetchSearch()
+  }, [])
   
   return (
     <div className="Search">
@@ -41,7 +37,7 @@ export default () => {
               </div>
               <div className="Search-item-info">
                 <h2>
-                  $ {item.price.amount.toLocaleString(undefined, { minimumFractionDigits: 2 })}
+                  $ {item.price.amount},{item.price.decimals || "00"}
                   {item.free_shipping && (
                     <span className="Search-item-shipping">
                       <img src="/images/ic_shipping.png" srcSet="/images/ic_shipping@2x.png" alt={item.title} />
@@ -62,3 +58,9 @@ export default () => {
     </div>
   )
 }
+
+Search.propTypes = {
+  query: PropTypes.string.isRequired
+}
+
+export default Search

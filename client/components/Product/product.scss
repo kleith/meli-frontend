@@ -10,13 +10,17 @@
     padding: 32px;
   }
   &-description {
-    flex: 8;
-    // &-image {
-    // }
+    flex: 1;
+    &-image {
+      img {
+        width: 100%;
+      }
+    }
     &-product {
       text-align: left;
       h2 {
         font-size: 28px;
+        margin-bottom: 20px;
       }
       div {
         font-size: 16px;
@@ -24,8 +28,7 @@
       }
     }
     &-info {
-      flex: 3;
-      text-align: left;
+      width: 270px;
       h2 {
         font-size: 46px;
         font-weight: 400;

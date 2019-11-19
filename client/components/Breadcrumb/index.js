@@ -6,14 +6,14 @@ const Breadcrumb = ({ categories }) => (
   <div className="Breadcrumb">
     <ul className="Breadcrumb-list">
       {categories.map((category, index) => (
-        <li key={index}>{category.name}</li>
+        <li key={index}>{category}</li>
       ))}
     </ul>
   </div>
 )
 
 Breadcrumb.propTypes = {
-  categories: PropTypes.array.isRequired
+  categories: PropTypes.arrayOf(PropTypes.string).isRequired
 }
 
 export default Breadcrumb

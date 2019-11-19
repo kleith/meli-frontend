@@ -5,7 +5,7 @@ import Router from 'next/router'
 import './header.scss'
 
 const Header = () => {
-  const [value, setValue] = useState(null)
+  const [value, setValue] = useState(undefined)
 
   const handleSearch = (e) => {
     e.preventDefault()
@@ -21,7 +21,9 @@ const Header = () => {
     <header className="Header">
       <div className="Header-container">
         <Link href="/">
-          <img src="/images/Logo_ML.png" srcSet="/images/Logo_ML@2x.png" className="Header-logo" alt="logo" />
+          <a>
+            <img src="/images/Logo_ML.png" srcSet="/images/Logo_ML@2x.png" className="Header-logo" alt="logo" />
+          </a>
         </Link>
         <div className="Header-inputContainer">
           <form onSubmit={event => handleSearch(event)}>

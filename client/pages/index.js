@@ -2,9 +2,7 @@ import React from 'react'
 import Layout from '../components/Layout'
 
 const Home = () => (
-  <Layout>
-    Meli - examen frontend
-  </Layout>
+  <Layout></Layout>
 )
 
 export default Home
