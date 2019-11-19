@@ -16,7 +16,6 @@ function getItems(req) {
     params: {
       q: req.query.q,
       limit: req.query.limit || 4,
-      offset: req.query.offset || 1
     },
     timeout: 10000
   });
@@ -59,18 +58,38 @@ function getItemData(req) {
 
 // GET items listing
 router.get('/', function(req, res) {
-  getItems(req).then(function(response) {
-    var buildResponse = buildItems(response.data);
-    res.json(buildResponse);
-  });
-});
-router.get('/:id', function(req, res) {
-  getItemData(req).then(
-    axios.spread(function(itemPromise, itemDescPromise) {
-      var buildResponse = buildItem(itemPromise.data, itemDescPromise.data);
+  getItems(req)
+    .then(function(response) {
+      var buildResponse = buildItems(response.data);
       res.json(buildResponse);
     })
-  );
+    .catch(function(err) {
+      if (err.response.status) {
+        res.status(err.response.status);
+        res.json(err.response.data);
+      } else {
+        res.status(500);
+        res.json({ message: 'Error server.' })
+      }
+    });
+});
+router.get('/:id', function(req, res) {
+  getItemData(req)
+    .then(
+      axios.spread(function(itemPromise, itemDescPromise) {
+        var buildResponse = buildItem(itemPromise.data, itemDescPromise.data);
+        res.json(buildResponse);
+      })
+    )
+    .catch(function(err) {
+      if (err.response.status) {
+        res.status(err.response.status);
+        res.json(err.response.data);
+      } else {
+        res.status(500);
+        res.json({ message: 'Error server.' })
+      }
+    });
 });
 
 module.exports = router;

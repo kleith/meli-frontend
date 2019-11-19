@@ -22,7 +22,7 @@ function getPriceAmount(price) {
  * @returns {number}
  */
 function getPriceDecimals(price) {
-  return Number.parseInt(price.toString().split('.')[1]) || 00;
+  return Number.parseInt(price.toString().split('.')[1]) || 0;
 }
 
 module.exports = {
