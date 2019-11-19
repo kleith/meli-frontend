@@ -3,12 +3,17 @@ import PropTypes from 'prop-types'
 
 import './product.scss'
 
+/**
+ * Parser number to add points each 3 number
+ * @param {number} number The price value
+ * @returns {string}      Get the same number with thousands separation
+ */
 const numberWithCommas = number => {
   return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 }
 
 const Product = ({ product }) => {
-  if (!product) {
+  if (!product.author) {
     return <div>Loading...</div>
   }
 
@@ -47,8 +52,8 @@ const Product = ({ product }) => {
 Product.propTypes = {
   product: PropTypes.shape({
     author: PropTypes.shape({
-      name: PropTypes.string,
-      lastname: PropTypes.string
+      name: PropTypes.string.isRequired,
+      lastname: PropTypes.string.isRequired
     }),
     item: PropTypes.shape({
       id: PropTypes.string,
@@ -64,7 +69,11 @@ Product.propTypes = {
       sold_quantity: PropTypes.number,
       description: PropTypes.string
     })
-  })
+  }).isRequired
+}
+
+Product.defaultProps = {
+  product: {}
 }
 
 export default Product

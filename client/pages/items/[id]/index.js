@@ -6,12 +6,20 @@ import Product from '../../../components/Product'
 
 import { GET_ITEM } from '../../../utils/apiEndpoint'
 
+/**
+ * Item page
+ * 
+ * Product description from an item
+ */
 const Item = ({ data }) => (
   <Layout>
-    {data && <Product product={data} />}
+    <Product product={data} />
   </Layout>
 )
 
+/**
+ * Fetching data from query context
+ */
 Item.getInitialProps = async function(context) {
   const { id } = context.query
 

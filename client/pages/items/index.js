@@ -1,13 +1,18 @@
 import React from 'react'
-// import { withRouter } from 'next/router'
 import Layout from '../../components/Layout'
 import Search from '../../components/Search'
 
-export default ({ router }) => {
+/**
+ * Items page search
+ * 
+ * Search page with 4 results
+ */
+const Items = () => {
   return (
     <Layout>
       <Search />
-      {/* {router.query.q && <Search query={router.query.q} />} */}
     </Layout>
   )
 }
+
+export default Items

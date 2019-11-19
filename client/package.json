@@ -1,11 +1,13 @@
 {
   "name": "meli-frontend",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "test": "jest --testTimeout=10000",
+    "test-dev": "jest --watch --detectOpenHandles --testTimeout=10000"
   },
   "dependencies": {
     "@zeit/next-sass": "^1.0.1",
@@ -14,5 +16,20 @@
     "node-sass": "^4.13.0",
     "react": "16.12.0",
     "react-dom": "16.12.0"
+  },
+  "devDependencies": {
+    "@testing-library/react": "^9.3.2",
+    "babel-jest": "^24.9.0",
+    "jest": "^24.9.0",
+    "react-test-renderer": "^16.12.0"
+  },
+  "jest": {
+    "testEnvironment": "node",
+    "coveragePathIgnorePatterns": [
+      "/node_modules/"
+    ],
+    "moduleNameMapper": {
+      "^.+\\.(css|less|scss)$": "babel-jest"
+    }
   }
 }

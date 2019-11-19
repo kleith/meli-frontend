@@ -8,6 +8,11 @@ import './Search.scss'
 
 import { GET_ITEMS } from '../../utils/apiEndpoint'
 
+/**
+ * Parser number to add points each 3 number
+ * @param {number} number The price value
+ * @returns {string}      Get the same number with thousands separation
+ */
 const numberWithCommas = number => {
   return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 }
@@ -31,7 +36,7 @@ const Search = withRouter(({ router }) => {
   
   return (
     <div className="Search">
-      {search.categories && <Breadcrumb categories={search.categories} />}
+      <Breadcrumb categories={search.categories} />
       <div className="Search-list">
         {search.items && search.items.map((item, index) => (
           <Link href={`/items/${item.id}`} key={index}>

@@ -16,4 +16,8 @@ Breadcrumb.propTypes = {
   categories: PropTypes.arrayOf(PropTypes.string).isRequired
 }
 
+Breadcrumb.defaultProps = {
+  categories: []
+}
+
 export default Breadcrumb
