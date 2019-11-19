@@ -17,7 +17,7 @@ const Search = withRouter(({ router }) => {
 
   useEffect(() => {
     function fetchSearch() {
-      fetch(GET_ITEMS + router.query.q)
+      fetch(GET_ITEMS + router.query.search)
         .then(res => {
           return res.json()
         })

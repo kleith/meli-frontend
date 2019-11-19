@@ -14,7 +14,7 @@ const Header = () => {
     if (!value.length) {
       return false
     }
-    Router.push(`/items?q=${encodeURIComponent(value)}`)
+    Router.push(`/items?search=${encodeURIComponent(value)}`)
   }
 
   return (
